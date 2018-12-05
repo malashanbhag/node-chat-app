@@ -1,13 +1,13 @@
 var socket = io();
             
 socket.on('connect', function(){
-    console.log('Connected to server')
+    console.log('Connected to server');
 
    //creating a custom event
-   socket.emit('createMessage', {
-       from : 'Mala',
-       text : 'Data passed from front end' 
-   })
+//    socket.emit('createMessage', {
+//        from : 'Mala',
+//        text : 'Data passed from front end' 
+//    })
 })
 
 socket.on('disconnect', function(){
