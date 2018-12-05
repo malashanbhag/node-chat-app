@@ -14,9 +14,21 @@ app.use(express.static(publicPath));
 io.on('connection', (socket)=>{
     console.log('New User Connected');
 
+    //emits newEmail to client
+    socket.emit('newMessage',{
+        from : 'mala@gmail.com',
+        text : 'new message from mala',
+        createdAt : 123
+    });
+
+    //listening for a custom event
+    socket.on('createMessage', (message)=>{
+        console.log('createMessage ', message);
+    })
+
     socket.on('disconnect', ()=>{
         console.log('Disconnected')
-    })
+    });
 })
 
 server.listen(port, ()=>{
